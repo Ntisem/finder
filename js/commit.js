@@ -1,6 +1,6 @@
 $(document).ready(()=>{
 
-    var cloudUrl = 'https://api.cloudinary.com/v1_1/dednjremi/upload'
+    var cloudUrl = 'https://api.cloudinary.com/v1_1/info@rosefabricsgh.com/upload'
     var uploadPreset = 'rrqprh2f'
     var file=null
 
