@@ -1,7 +1,7 @@
 $(document).ready(()=>{
 
     var cloudUrl = 'https://api.cloudinary.com/v1_1/info@rosefabricsgh.com/upload'
-    var uploadPreset = 'rrqprh2f'
+    var uploadPreset = 'Qwertykey1@'
     var file=null
 
     
