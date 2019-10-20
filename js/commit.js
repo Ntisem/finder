@@ -41,6 +41,10 @@ $(document).ready(()=>{
                     'Devless-token': '516d707a35bf9714d30b3c8273c5d66c'
                 }
             })
+             /*Feedback after submission ie notification toaster*/
+                    .then(function(response) {
+                           $('#thankyou').modal('show');
+                    })
         })
         .catch(err=>console.log(err))
       });
