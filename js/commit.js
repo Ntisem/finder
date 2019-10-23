@@ -1,10 +1,8 @@
 $(document).ready(()=>{
 
-    var cloudUrl = 'https://api.cloudinary.com/v1_1/info@rosefabricsgh.com/upload'
-    var uploadPreset = 'Qwertykey1@'
+    var cloudUrl = 'https://api.cloudinary.com/v1_1/rosefabricsgh/upload'
+    var uploadPreset = 'fabricFinder'
     var file=null
-
-    
 
     $('#fabric_image').on('change',e=>{
         file = e.target.files[0]
@@ -15,7 +13,6 @@ $(document).ready(()=>{
 
         var formData = new FormData()
         formData.append('file',file)
-        console.log(file)
         formData.append('upload_preset',uploadPreset)
 
         axios({
@@ -40,15 +37,10 @@ $(document).ready(()=>{
                 headers: {
                     'Devless-token': '516d707a35bf9714d30b3c8273c5d66c'
                 }
+            }).then(function(response) {
+                $('#thankyou').modal('show');
             })
-             /*Feedback after submission ie notification toaster*/
-                    .then(function(response) {
-                           $('#thankyou').modal('show');
-                    })
         })
         .catch(err=>console.log(err))
-      });
-
-    
-
+    });
 })
