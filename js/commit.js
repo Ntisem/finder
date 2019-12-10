@@ -1,7 +1,7 @@
 $(document).ready(()=>{
 
-    var cloudUrl = ''
-    var uploadPreset = ''
+    var cloudUrl = 'https://api.cloudinary.com/v1_1/rosefabricsgh/upload'
+    var uploadPreset = 'fabricFinder'
     var file=null
 
     $('#fabric_image').on('change',e=>{
