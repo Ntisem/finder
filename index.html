@@ -111,7 +111,7 @@
                     </div>
                   </div>
                   <div class="col-lg-12 col-xl-2 ml-auto text-right">
-                    <input type="submit" class="btn btn-primary btn-block rounded" id="data-info" value="Submit">
+                    <input type="submit" class="btn btn-primary btn-block rounded" id="data_info" value="Submit">
                   </div>
                 </div>      
             </div>
@@ -415,9 +415,7 @@
 </html>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
-$('#data-info').click(function(e){
-   e.preventDefault();
-  var form = new FormData();
+  var form = data_info();
   form.append("fabric_image", "#fabric_image");
   form.append("description", "#description");
   form.append("phone_number", "#phone_number");
@@ -448,6 +446,5 @@ $('#data-info').click(function(e){
 $.ajax(settings).done(function (response) {
   console.log(response);
 });
- });
     
 </script>
