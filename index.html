@@ -415,8 +415,10 @@
 </html>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
-  var form = data_info();
-  form.append("fabric_image", "#fabric_image");
+   $('#data-info').click(function(e){
+  e.preventDefault();
+  var form = new FormData();
+  form.append("fabric_image", "https://api.cloudinary.com/v1_1/rosefabricsgh/upload");
   form.append("description", "#description");
   form.append("phone_number", "#phone_number");
 
@@ -443,8 +445,9 @@
   "data": form
 }
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-    
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+  });   
+  </script>
 </script>
