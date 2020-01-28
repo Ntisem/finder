@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="css/rangeslider.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/jquery-modal.css"/>
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/owl.theme.css">
     <link rel="stylesheet" type="text/css" href="css/carousel.css" rel="stylesheet" type="text/css" >
@@ -48,11 +48,11 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block"> 
-               <li class="active"><a href="index.html">Home</a></li>
-               <li><a href="https://www.rosefabricsgh.com" target="_blank" class="text-white">Shop</a></li>
-               <li><a href="partner.html" class="text-white">Partners</a></li>
-               <li><a href="https://docs.google.com/forms/d/17ODg1OaQOL4h7O7HWX0gxjU6qHn5OLF_mH1F2-lmY14/" class="cta"><span class="bg-primary text-white rounded">Become a Supplier</span></a></li>
-              </ul>
+                <li class="active"><a href="index.html">Find Fabric</a></li>
+                <li><a href="https://www.rosefabricsgh.com" target="_blank" class="text-white">Shop</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe5i2dwIaV1LFoMhntW2cOUgHad7kuEWDvcnWOGOhqnAV5z0A/viewform" class="cta" target="_blank"><span class="bg-primary text-white rounded">Become a Supplier</span></a></li>              
+                <li><a href="https://www.rosefabricsgh.com" target="_blank" class="power">powered by <img class="powered" src="images/roselogo1.png" alt="Logo"></a></li>           
+                </ul>
             </nav>
           </div>
           <div class="d-inline-block d-xl-none ml-auto py-3 col-6 text-right" style="position: relative; top: 3px;">
@@ -60,7 +60,7 @@
           </div>
         </div>    
     </header>
-    <!-- Navbar End -->
+    <!-- Navbar End -->   
     <!-- Main title -->
     <div class="_AbsoluteFill__1iipik8 site-blocks-cover overlay" style="background-image: url(images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
@@ -72,32 +72,22 @@
                 <h3 class="sub_text" data-aos="fade-up"><strong  class="sub_text">with the push of a button</strong></h3>
               </div>
             </div>
-             <!-- Main title End-->
-       
+             <!-- Main title End-->    
             <!-- Form Details -->
+            <div>
             <div class="form-search-wrap" data-aos="fade-up" data-aos-delay="200">
                 <div class="row align-items-center">
                   <div class="col-lg-12 mb-4 mb-xl-0 col-xl-4">
-                   <!-- image-preview-filename input [CUT FROM HERE]-->
-                   <div class="input-group image-preview">
-                   <input type="text" id="fabric_image" name="fabric_image" class="fileme form-control rounded image-preview-filename" disabled="disabled">
-                    <!-- don't give a name === doesn't send on POST/GET -->
-                   <span class="input-group-btn">
-                    <!-- image-preview-clear button -->
-                    <button type="button" class="btn  image-preview-clear" style="display:none;">
-                      <span class="icon icon-remove"></span> Clear
-                    </button>
-                    <!-- image-preview-input -->
-                        <div class="btn fabrics1  image-preview-input">
-                        <span class="icon icon-folder-open"></span>
-                        <span class="image-preview-input-title">Upload Image</span>
-                        <input type="file" id="fabric_image" name="fabric_image" class="fabrics1" accept="image/png, image/jpeg, image/gif" name="input-file-preview" required/> 
-                    <!-- rename it -->
-                    </div>
-                </span>
-               </div>
-               <!-- /input-group image-preview [TO HERE]-->             
-              </div>
+                    <div class="wrap-icon">
+                      <div class="fileupload fileupload-new upload-me" data-provides="fileupload">
+                        <span class="btn btn-files btn-file form-control rounded"><span class="fileupload-new"><img src="images/upload.png" class="icon upload">
+                          <strong class="imageupload">Upload Image</strong></span>
+                          <span class="fileupload-exists fileexists" style=""><img src="images/change.png" class="icon upload">
+                          <strong class="change2">Change</strong><span class="fileupload-preview prev" style=""></span></span>
+                        <input id="fabric_image" class="inputimage" type="file" /></span>                  
+                      </div>     
+                      </div>
+                   </div>   
                   <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                     <div class="wrap-icon">
                       <textarea  type="text" id="description" name="description" class="form-control rounded" placeholder="Brief Description"></textarea>
@@ -106,207 +96,98 @@
                   </div>
                    <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                     <div class="wrap-icon">
-                      <input type="number" id="phone_number" name="phone_number" class="form-control rounded" placeholder="Phone Number" required>
+                      <input type="number" id="phone_number" name="phone_number" class="form-control rounded" placeholder="Phone Number"required="">
                        <i class="icon icon-phone" aria-hidden="true"></i>
+                       <span class="error_form" id="phone_number_error_message"></span>
                     </div>
                   </div>
                   <div class="col-lg-12 col-xl-2 ml-auto text-right">
-                    <input type="submit" class="btn btn-primary btn-block rounded" id="data_info" value="Submit">
+                    <input type="submit" class="btn btn-primary btn-block rounded" id="data-info" value="Submit">
                   </div>
                 </div>      
             </div>
           </div>
+        </form>
+      <!-- Modal HTML embedded directly into document -->
+      <div id="thankyou" class="modal animated bounceInDown">
+        <div class="thank-you-pop ">
+        <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt="">
+        <p>Thank you for using <strong class="fab">Rosefabrics</strong><strong class="gh">Gh</strong> 
+            Fabric Finder. Please, expect a response <strong class="fab">in less than 30 minutes</strong></p>
+          <hr/>
+            <p class="testm"><a  href="index.html">Find more Fabrics</a></p> 
+            <p class="testshop"><a  href="https://www.rosefabricsgh.com" target="_blank">Shop Now</a></p> 
+            <a href="index.html" class="modals close-modal" rel="modal:close">Close</a>
+        </div>
+      </div>
+     <!-- Testimonial -->
+          <div class="slide-one-item home-slider owl-carousel sliders">
+            <div>
+              <div class="testimonial">
+                <figure class="mb-4">
+                  <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-3">
+                  <p style="color:#fff;font-size:17px;">Fedora Shaft Asante</p>
+                </figure>
+                <blockquote>
+                  <p>Excellent service and fabrics are really nice as the pictures</p>
+                </blockquote>
+              </div>
+            </div>
+            <div>
+              <div class="testimonial">
+                <figure class="mb-4">
+                  <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">
+                  <p  style="color:#fff;font-size:17px;">Meg Madagwa Okeke</p>
+                </figure>
+                <blockquote>
+                  <p>Great service. Ordered Fabric was delivered on time. I will certainly recommend Rosefabricsghs to my friends.</p>
+                </blockquote>
+              </div>
+            </div>
+            <div>
+              <div class="testimonial">
+                <figure class="mb-4">
+                  <img src="images/person_4.jpg" alt="Image" class="img-fluid mb-3">
+                  <p  style="color:#fff;font-size:17px;">Dallas Aflakpui</p>
+                </figure>
+                <blockquote>
+                  <p>The best online fabric store have ever seen very reliable n quality fabrics.</p>
+                </blockquote>
+              </div>
+            </div>
+            <div>
+              <div class="testimonial">
+                <figure class="mb-5">
+                  <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-3">
+                  <p  style="color:#fff;font-size:17px;">Evelyn Danquah</p>
+                </figure>
+                <blockquote>
+                  <p>Prompt delivery. I love it. Nice Fabrics and will recommend for everyone. Customer service at it best.</p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
+       </div>
+      </div>
+    <!-- Testimonial End -->
         <!-- form details End -->
-        <!-- Testimonial -->
-       <div class="site-section bg-red">
-      <div class="container">
-        <div class="slide-one-item home-slider owl-carousel">
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-3">
-                <p style="color:#fff;font-size:17px;">John Smith</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">
-                <p  style="color:#fff;font-size:17px;">William Ntisem</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="images/person_4.jpg" alt="Image" class="img-fluid mb-3">
-                <p  style="color:#fff;font-size:17px;">Opoku</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
-          <div>
-            <div class="testimonial">
-              <figure class="mb-4">
-                <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-3">
-                <p  style="color:#fff;font-size:17px;">Dianna Ayisu</p>
-              </figure>
-              <blockquote>
-                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-              </blockquote>
-            </div>
-          </div>
+      <div class="site-section bg-red">
+      <div class="container mobilecontainer boxes">
         </div>
       </div>
     </div>
-     <!-- Testimonial End -->
-    <!-- Services Section Start -->
-    <section id="services" class="services section-padding">
-      <div class="container">
-        <div class="row">
-          <!-- Services item -->
-          <div class="col-md-6 col-lg-3 col-xs-6">
-            <div class="services-item wow fadeInDown" data-wow-delay="0.3s">
-              <div class="icon">
-                 <img class="pic" src="images/save.png" alt="Image" class="img-fluid rounded">
-              </div>
-              <div class="services-content">
-                <h4><a href="#">Saves Time</a></h4>
-                <p>With just a click, you can find the fabric you want. No need to waste time in traffic purposely of going to the market to buy a fabric(s).</p>
-              </div>
-            </div>
-          </div>
-                 <!-- Services item -->
-          <div class="col-md-6 col-lg-3 col-xs-6">
-            <div class="services-item2 wow fadeInDown" data-wow-delay="1.2s">
-              <div class="icon">
-              <img class="pic" src="images/hassle.png" alt="Image" class="img-fluid rounded">
-              </div>
-              <div class="services-content">
-                <h4><a href="#">Hassle Free</a></h4>
-                <p>Save yourself the stress of walking through every store for one fabric. you can find it here and deliver it</p>
-              </div>
-            </div>
-          </div>
-          <!-- Services item -->
-          <div class="col-md-6 col-lg-3 col-xs-6">
-            <div class="services-item3 wow fadeInDown" data-wow-delay="0.9s">
-              <div class="icon">
-                 <img class="pic" src="images/prices.png" alt="Image" class="img-fluid rounded">
-              </div>
-              <div class="services-content">
-                <h4><a href="#">Competitive Prices</a></h4>
-                 <p>Get your money's worth, Save more and Get more</p>
-              </div>
-            </div>
-          </div>
-          <!-- Services item -->
-          <div class="col-md-6 col-lg-3 col-xs-6" >
-            <div class="services-item4 wow fadeInDown" data-wow-delay="0.6s"> 
-              <div class="icon">
-                <img class="pic" src="images/quality.png" alt="Image" class="img-fluid rounded">
-              </div>
-              <div class="services-content">
-                <h4><a href="#">Quality Assured</a></h4>
-              <p>You are assured of authentic fabrics.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  <!-- Services Section End -->
-  
-    <!-- How it works Section Start -->
-    <div id="resume" class="section-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="education wow fadeInRight" data-wow-delay="0.3s">
-              <ul class="timeline">
-                <li>
-                  <i class="icon icon-gear"></i>
-                  <h2 class="timelin-title">How it Works</h2>
-                </li>
-                <li>
-                  <div class="content-text">
-                    <h3 class="line-title2">STEP 1</h3>
-                    <h3 class="line-title">Upload your fabric image</h3>
-                    <p class="line-text">Upload the image of the fabric you are looking either from your PC or mobile</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="content-text">
-                   <h3 class="line-title2">STEP 2</h3>
-                    <h3 class="line-title">Brief Description (Optional)</h3>
-                    <p class="line-text">You can give a Brief details or description of the fabric</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="content-text">
-                    <h3 class="line-title2">STEP 3</h3>
-                    <h3 class="line-title">Provide your Phone Number</h3>
-                    <p class="line-text">Then finally, Provide your active phone number or whatsapp number and click on the submit button to send details.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="experience wow fadeInRight" data-wow-delay="0.6s">
-              <ul class="timeline">
-                <li>
-                  <i class="icon-briefcase"></i>
-                  <h2 class="timelin-title">Experience</h2>
-                </li>
-                <li>
-                  <div class="content-text">
-                    <h3 class="line-title2">STEP 1</h3>
-                    <h3 class="line-title">Upload your fabric image</h3>
-                    <p class="line-text">Upload the image of the fabric you are looking either from your PC or mobile</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="content-text">
-                   <h3 class="line-title2">STEP 2</h3>
-                    <h3 class="line-title">Brief Description (Optional)</h3>
-                    <p class="line-text">You can give a Brief details or description of the fabric</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="content-text">
-                    <h3 class="line-title2">STEP 3</h3>
-                    <h3 class="line-title">Provide your Phone Number</h3>
-                    <p class="line-text">Then finally, Provide your active phone number or whatsapp number and click on the submit button to send details.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- How it works Section End -->
     <!-- Become a supplier -->
-     <div class="container-jumbo  overlay jumbotron jumbotron-fluid" style="background-image: url(images/contentPattern.png) repeat;" data-aos="fade" data-stellar-background-ratio="0.5">
+     <div class="container-jumbo  overlay jumbotron jumbotron-fluid" style="background-image: url(images/contentPattern.png) repeat; margin-top:20px;" data-aos="fade" data-stellar-background-ratio="0.5">
      <div class="container ">
      <div class="row mb-3 align-items-stretch">
      <div class="col-md-6 col-lg-6 mb-4 mb-lg-6">
      <div class="sup">
       <h1 class="display-4">Become a Supplier</h1>
       <h5 class="leads">Get to meet new Customers and increase your business sales</h5>
-      <button class="supplier _white3__iplgmo" type="button" href="https://docs.google.com/forms/d/17ODg1OaQOL4h7O7HWX0gxjU6qHn5OLF_mH1F2-lmY14/edit" target="_blank" class="btn btn-outline-light">Become a Supplier</button>
+      <a href='https://docs.google.com/forms/d/e/1FAIpQLSe5i2dwIaV1LFoMhntW2cOUgHad7kuEWDvcnWOGOhqnAV5z0A/viewform' target="_blank"> 
+        <button class="supplier _white3__iplgmo" type="button"  class="btn btn-outline-light">Become a Supplier</button></a>  
       </div>
       </div>
           <div class="col-md-6 col-lg-6 mb-4 mb-lg-6">
@@ -322,12 +203,12 @@
  	<div class="row2">
 		<div class="container">
 			<section class="customer-logos slider">
-			<div class="slide"><a href="https://www.rosefabricsgh.com" target="_blank"><img src="images/base-slider/rose.png"></a></div>
-			<div class="slide"><a href="http://www.startup-mentoring.org/startups/kenneth-anku/" target="_blank"><img src="images/base-slider/enpact.png"></a></div>
-			<div class="slide"><a href="https://www.ghanaweb.com/GhanaHomePage/business/Ghana-eCommerce-Awards-nominees-list-released-695404" target="_blank"><img src="images/base-slider/ghweb.png"></a></div>
+				<div class="slide"><a href="https://www.rosefabricsgh.com" target="_blank"><img src="images/base-slider/rose.png"></a></div>
+				<div class="slide"><a href="http://www.startup-mentoring.org/startups/kenneth-anku/" target="_blank"><img src="images/base-slider/enpact.png"></a></div>
+				<div class="slide"><a href="https://www.ghanaweb.com/GhanaHomePage/business/Ghana-eCommerce-Awards-nominees-list-released-695404" target="_blank"><img src="images/base-slider/ghweb.png"></a></div>
 			  <div class="slide"><a href="http://www.startup-mentoring.org/startups/kenneth-anku/" target="_blank"><img src="images/base-slider/enpact.png"></a></div>
-			<div class="slide"><a href="https://www.pulse.com.gh/lifestyle/fashion/p-promos-9-best-places-to-get-exquisite-fabrics-to-buy/52drv3n" target="_blank"><img src="images/base-slider/pulse.png"></a></div>
-			<div class="slide"><a href="https://www.logistics.dhl/gh-en/home.html" target="_blank"><img src="images/base-slider/dhl.png"></a></div>
+				<div class="slide"><a href="https://www.pulse.com.gh/lifestyle/fashion/p-promos-9-best-places-to-get-exquisite-fabrics-to-buy/52drv3n" target="_blank"><img src="images/base-slider/pulse.png"></a></div>
+				<div class="slide"><a href="https://www.logistics.dhl/gh-en/home.html" target="_blank"><img src="images/base-slider/dhl.png"></a></div>
         <div class="slide"><a href="https://www.rosefabricsgh.com" target="_blank"><img src="images/base-slider/rose.png"></a></div>
         <div class="slide"><a href="http://ghanaecommerceawards.com/public-vote.php" target="_blank"><img src="images/base-slider/ghecom.png"></a></div>
 			</section>
@@ -357,7 +238,7 @@
                <div class="col-md-lg6">
               <p>Address: Dansoman Banana-Inn, Kpako Okoso Street (Near Ted Academy) &nbsp; | &nbsp; GPS: GA-442-6782 &nbsp; | &nbsp;Email: info@rosefabricsgh.com &nbsp; | &nbsp; Tel: +233272954084</p>
               </div>
-              <p>Copyright © 2019 All Right Reserved <a href="https://www.rosefabricsgh.com/index.php" target="_blank"><strong class="fab">RosefabricsGh</strong></a> | by Walkers Techbase</p>
+              <p>Copyright © 2019 All Right Reserved <a href="https://www.rosefabricsgh.com" target="_blank"><strong class="fab">| powered by RosefabricsGh</strong></a> </p>
             </div>
           </div>
         </div>
@@ -370,6 +251,7 @@
     </a>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -387,6 +269,9 @@
  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
  <script src="jquery.bootstrap-growl.js"></script>
  <script src="slick.js" type="text/javascript" charset="utf-8"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src='js/commit.js'></script>
  <script type="text/javascript">
 		$(document).ready(function(){
 			$('.customer-logos').slick({
@@ -409,45 +294,24 @@
 					}
 				}]
 			});
-		});
-	</script>
+    });
+    
+    $(document).ready(function(){
+  $(window).scroll(function(){
+  	var scroll = $(window).scrollTop();
+	  if (scroll > 150) {
+      $(".site-navbar").css("background" , "url(images/overaly.png) repeat");  	
+      $(".site-navbar").css("background" , "#790404");  
+	  }
+
+	  else{
+      $(".site-navbar").css("background" , "transparent");
+	  }
+  })
+})
+
+
+  </script>
   </body>
 </html>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script type="text/javascript">
-   $('#data-info').click(function(e){
-  e.preventDefault();
-  var form = new FormData();
-  form.append("fabric_image", "https://api.cloudinary.com/v1_1/rosefabricsgh/upload");
-  form.append("description", "#description");
-  form.append("phone_number", "#phone_number");
 
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://rose-pay.herokuapp.com/finder/",
-    "method": "POST",
-    "headers": {
-    "User-Agent": "PostmanRuntime/7.20.1",
-    "Accept": "*/*",
-    "Cache-Control": "no-cache",
-    "Postman-Token": "942b0850-5bcc-447c-b729-66a309158548,158fc7fb-1a68-4a1c-a728-810487018b24",
-    "Host": "rose-pay.herokuapp.com",
-    "Content-Type": "multipart/form-data; boundary=--------------------------233411145557167765367120",
-    "Accept-Encoding": "gzip, deflate",
-    "Content-Length": "435",
-    "Connection": "keep-alive",
-    "cache-control": "no-cache"
-  },
-  "processData": false,
-  "contentType": false,
-  "mimeType": "multipart/form-data",
-  "data": form
-}
-
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
-  });   
-  </script>
-</script>
