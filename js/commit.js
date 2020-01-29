@@ -10,7 +10,6 @@ $(document).ready(()=>{
 
     $('#data-info').click(function(e){
         e.preventDefault();
-
         var formData = new FormData()
         formData.append('file',file)
         console.log(file)
@@ -25,24 +24,20 @@ $(document).ready(()=>{
             data:formData
         }).then(res=>{
             var imageUrl = res.data.secure_url
-            axios.post('https://rose-pay.herokuapp.com/finder/', {
-                'resource': [{
-                    'name': 'image_finder',
-                    'field': [{
-                        'fabric_image': imageUrl,
-                        'description': $("#description").val(),
-                        'phone_number': $("#phone_number").val()
-                    }]
-                }]
-            }, {
-                headers: {
-                    'Devless-token': '516d707a35bf9714d30b3c8273c5d66c'
+            axios({
+                method: 'post',
+                url: 'https://cors-anywhere.herokuapp.com/https://rose-pay.herokuapp.com/finder/',
+                data: {
+                    fabric_image: imageUrl,
+                    description: $("#description").val(),
+                    phone_number: $("#phone_number").val()
                 }
-                .then(function(response) {
-                    $('#thankyou').modal('show');
+            }).then(function(response) {
+                $('#thankyou').appendTo("body").modal(); 
             })
-            })
-          
+            // $("#closer").click(function () {
+            //     $("#thankyou").dialog("close");
+            // });
         })
         .catch(err=>console.log(err))
       });
